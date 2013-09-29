@@ -4,5 +4,9 @@
     <string name="app_name">Kortkoll</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="login_username">Användarnamn</string>
+    <string name="login_password">Lösenord</string>
+    <string name="login_header">Mitt SL - inlogging</string>
+    <string name="login_login">Logga in</string>
 
 </resources>
