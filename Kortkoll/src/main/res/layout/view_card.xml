@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/cardlarge"
+              android:layout_margin="6dp"
+              android:padding="6dp"
+        android:gravity="center_horizontal">
+
+    <TextView android:text="Blåa Kortet"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+            android:textColor="@android:color/white"/>
+
+    <TextView android:id="@+id/cardName"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+    android:textColor="@android:color/white"/>
+
+    <TextView android:id="@+id/cardValue"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="@android:color/white"/>
+
+    <TextView android:text="RESKASSA"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="@android:color/white"/>
+</LinearLayout>

@@ -1,19 +1,19 @@
 package nu.kortkoll.android.activities;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import nu.kortkoll.android.API.APIQuery;
 import nu.kortkoll.android.R;
 import nu.kortkoll.android.models.Card;
 import nu.kortkoll.android.views.LoginBoxView;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class LoginActivity extends Activity implements LoginBoxView.OnLoginListener {
 
@@ -37,16 +37,19 @@ public class LoginActivity extends Activity implements LoginBoxView.OnLoginListe
   }
 
   @Override
-  public void onLoginPressed(String username, String password) {
-    APIQuery.getCards(this, username, password, new Callback<List<Card>>() {
+  public void onLoginPressed(final String username, final String password) {
+    APIQuery.getCards(this, username, password, new APIQuery.CardListener() {
       @Override
-      public void success(List<Card> cards, Response response) {
-        Log.e("Response", response.toString());
+      public void onSuccess(List<Card> cards) {
+        Intent intent = new Intent(LoginActivity.this, CardsActivity.class);
+        intent.putParcelableArrayListExtra(Card.PARCEL_KEYS, new ArrayList<Parcelable>(cards));
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
       }
 
       @Override
-      public void failure(RetrofitError retrofitError) {
-        Log.e("Failure", retrofitError.toString());
+      public void onFailure(String error) {
+
       }
     });
   }

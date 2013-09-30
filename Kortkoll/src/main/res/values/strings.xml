@@ -8,5 +8,6 @@
     <string name="login_password">Lösenord</string>
     <string name="login_header">Mitt SL - inlogging</string>
     <string name="login_login">Logga in</string>
+    <string name="title_activity_cards">Dina Kort</string>
 
 </resources>
