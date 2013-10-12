@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/selected" android:oneshot="true">
+    <item android:drawable="@drawable/logo_animation_0" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_1" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_2" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_3" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_4" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_5" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_6" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_7" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_8" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_9" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_10" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_11" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_12" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_13" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_14" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_15" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_16" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_17" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_18" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_19" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_20" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_21" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_22" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_23" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_24" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_25" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_26" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_27" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_28" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_29" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_30" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_31" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_32" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_33" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_34" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_35" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_36" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_37" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_38" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_39" android:duration="20" />
+    <item android:drawable="@drawable/logo_animation_40" android:duration="20" />
+</animation-list>

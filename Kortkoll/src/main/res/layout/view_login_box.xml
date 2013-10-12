@@ -2,30 +2,88 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="#FFFFFF">
 
-    <TextView android:text="@string/login_header"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"/>
-
-    <EditText
-            android:id="@+id/usernameEdittext"
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/login_username"
-            android:text="blommegard"/>
+            android:gravity="center_vertical"
+            android:layout_margin="6dp">
 
-    <EditText
-            android:id="@+id/passwordEdittext"
+        <ImageView
+                android:src="@drawable/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:text="@string/login_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginLeft="6dp"/>
+
+    </LinearLayout>
+
+    <View
+            android:background="#d2d2d2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/login_password"
-            android:inputType="textPassword"
-            android:text="2owX8VuCxTQghP"/>
+            android:gravity="center_vertical"
+            android:layout_margin="6dp">
 
+        <ImageView
+                android:src="@drawable/usericon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    <Button android:id="@+id/loginButton"
+        <EditText
+                android:id="@+id/usernameEdittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_username"
+                android:text="blommegard"
+                android:layout_marginLeft="6dp"/>
+    </LinearLayout>
+
+    <View
+            android:background="#d2d2d2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_login"/>
+            android:gravity="center_vertical"
+            android:layout_margin="6dp">
+
+        <ImageView
+                android:src="@drawable/passwordicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:id="@+id/passwordEdittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_password"
+                android:inputType="textPassword"
+                android:text="2owX8VuCxTQghP"
+                android:layout_marginLeft="6dp"/>
+
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_login"
+            />
 </LinearLayout>

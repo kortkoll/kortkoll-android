@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="30dp"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+    <ImageView
+            android:id="@+id/login_view_logo_card3"
+            android:src="@drawable/card3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+
+    <ImageView
+            android:id="@+id/login_view_logo_card2"
+            android:src="@drawable/card2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+
+    <ImageView
+            android:id="@+id/login_view_logo_card1"
+            android:src="@drawable/card1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+
+    <ImageView
+            android:id="@+id/login_view_logo"
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_animation_40"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:text="KORTKOLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="3dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/login_view_logo"/>
+</RelativeLayout>

@@ -11,7 +11,7 @@ public class Card implements Parcelable {
   public static final String PARCEL_KEYS = "kortkoll.cards";
 
   public String name;
-  public String purse;
+  public double purse;
   public String owner;
   public Product[] products;
 
@@ -33,14 +33,14 @@ public class Card implements Parcelable {
 
   public Card(Parcel parcel) {
     name = parcel.readString();
-    purse = parcel.readString();
+    purse = parcel.readDouble();
     owner = parcel.readString();
   }
 
   @Override
   public void writeToParcel(Parcel parcel, int i) {
     parcel.writeString(name);
-    parcel.writeString(purse);
+    parcel.writeDouble(purse);
     parcel.writeString(owner);
   }
 }

@@ -85,7 +85,8 @@ public class APIQuery {
         androidClient.close();
 
         Gson gson = new Gson();
-        List<Card> cards = gson.fromJson(responseText, new TypeToken<List<Card>>(){}.getType());
+        List<Card> cards = gson.fromJson(responseText, new TypeToken<List<Card>>() {
+        }.getType());
 
         listener.onSuccess(cards);
       }
@@ -141,8 +142,9 @@ public class APIQuery {
     return text;
   }
 
-  public interface CardListener{
+  public interface CardListener {
     public void onSuccess(List<Card> cards);
+
     public void onFailure(String error);
   }
 }
