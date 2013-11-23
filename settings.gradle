@@ -1,1 +1,2 @@
 include ':Kortkoll'
+include 'Android-ViewPagerIndicator:library'
