@@ -31,6 +31,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.net.ssl.SSLContext;
@@ -88,6 +90,9 @@ public class APIQuery {
         List<Card> cards = gson.fromJson(responseText, new TypeToken<List<Card>>() {
         }.getType());
 
+        if(cards == null){
+          cards = Collections.EMPTY_LIST;
+        }
         listener.onSuccess(cards);
       }
     }).start();
