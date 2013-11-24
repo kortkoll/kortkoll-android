@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.support.v4.app.FragmentActivity;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Toast;
 
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
@@ -22,11 +24,12 @@ import java.util.List;
 
 import nu.kortkoll.android.API.APIQuery;
 import nu.kortkoll.android.R;
+import nu.kortkoll.android.fragments.LoadingDialogFragment;
 import nu.kortkoll.android.models.Card;
 import nu.kortkoll.android.views.LoginBoxView;
 import nu.kortkoll.android.views.LoginLogoView;
 
-public class LoginActivity extends Activity implements LoginBoxView.OnLoginListener {
+public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLoginListener {
 
   private LoginBoxView loginBoxView;
   private Handler handler = new Handler();
@@ -89,7 +92,8 @@ public class LoginActivity extends Activity implements LoginBoxView.OnLoginListe
 
   public void animateBuss() {
     final int START = (int) dpToPx(1000);
-    final int STOP1 = (int) dpToPx(10);;
+    final int STOP1 = (int) dpToPx(10);
+    ;
     final int STOP2 = (int) dpToPx(-1000);
     View bus = findViewById(R.id.login_bus);
     ObjectAnimator part1 = ObjectAnimator.ofFloat(bus, "translationX", START, STOP1);
@@ -121,9 +125,11 @@ public class LoginActivity extends Activity implements LoginBoxView.OnLoginListe
 
   @Override
   public void onLoginPressed(final String username, final String password) {
+    LoadingDialogFragment.showLoadingDialogWithHolo(getSupportFragmentManager());
     APIQuery.getCards(this, username, password, new APIQuery.CardListener() {
       @Override
       public void onSuccess(List<Card> cards) {
+        LoadingDialogFragment.hideLoadingDialog(getSupportFragmentManager());
         Intent intent = new Intent(LoginActivity.this, CardsActivity.class);
         intent.putParcelableArrayListExtra(Card.PARCEL_KEYS, new ArrayList<Parcelable>(cards));
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -132,7 +138,8 @@ public class LoginActivity extends Activity implements LoginBoxView.OnLoginListe
 
       @Override
       public void onFailure(String error) {
-
+        LoadingDialogFragment.hideLoadingDialog(getSupportFragmentManager());
+        Toast.makeText(LoginActivity.this, "Något gick fel..", Toast.LENGTH_LONG);
       }
     });
   }

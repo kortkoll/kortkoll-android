@@ -17,4 +17,11 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="Widget.Base.ProgressBar.Large.Inverse" parent="android:Widget.Holo.Light.ProgressBar.Large.Inverse" />
+    <style name="Dialog.Loading" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>
