@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 
 import com.viewpagerindicator.CirclePageIndicator;
+import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.List;
@@ -37,8 +38,8 @@ public class CardsActivity extends FragmentActivity {
     mPager = (ViewPager) findViewById(R.id.pager);
     mPager.setAdapter(mAdapter);
 
-    CirclePageIndicator circlePageIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
-    circlePageIndicator.setViewPager(mPager);
+    PageIndicator pageIndicator = (PageIndicator)findViewById(R.id.indicator);
+    pageIndicator.setViewPager(mPager);
   }
 
 
