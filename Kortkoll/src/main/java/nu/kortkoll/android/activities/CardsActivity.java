@@ -6,15 +6,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
 
-import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
-import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.List;
 
 import nu.kortkoll.android.R;
+import nu.kortkoll.android.fragments.CardFragment;
 import nu.kortkoll.android.models.Card;
 
 public class CardsActivity extends FragmentActivity {
@@ -40,13 +38,6 @@ public class CardsActivity extends FragmentActivity {
 
     PageIndicator pageIndicator = (PageIndicator)findViewById(R.id.indicator);
     pageIndicator.setViewPager(mPager);
-  }
-
-
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.cards, menu);
-    return true;
   }
 
   public static class MyAdapter extends FragmentStatePagerAdapter {

@@ -1,4 +1,4 @@
-package nu.kortkoll.android.activities;
+package nu.kortkoll.android.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -9,5 +9,6 @@
     <string name="login_header">Mitt SL - inlogging</string>
     <string name="login_login">Logga in</string>
     <string name="title_activity_cards">Dina Kort</string>
+    <string name="something_went_wrong">Något gick fel..</string>
 
 </resources>

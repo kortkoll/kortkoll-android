@@ -40,9 +40,10 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
     setContentView(R.layout.activity_login);
 
     loginBoxView = (LoginBoxView) findViewById(R.id.LoginLoginView);
-
     loginBoxView.setLoginListener(this);
+    loginBoxView.setVisibility(View.INVISIBLE);
 
+    findViewById(R.id.login_logo).setVisibility(View.INVISIBLE);
     animateBuss();
   }
 
@@ -52,15 +53,37 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
     handler.postDelayed(new Runnable() {
       @Override
       public void run() {
+        animateLoginBox();
+      }
+    }, 1000);
+    handler.postDelayed(new Runnable() {
+      @Override
+      public void run() {
         animateLogo();
       }
     }, 1000);
+  }
+
+  private void animateLoginBox() {
+    ObjectAnimator pushUp = ObjectAnimator.ofFloat(loginBoxView, "translationY", loginBoxView.getHeight() + dpToPx(100), 0);
+    pushUp.setInterpolator(new BounceInterpolator());
+    pushUp.setDuration(800);
+    pushUp.addListener(new AnimatorListenerAdapter() {
+      @Override
+      public void onAnimationStart(Animator animation) {
+        super.onAnimationStart(animation);
+        loginBoxView.setVisibility(View.VISIBLE);
+      }
+    });
+
+    pushUp.start();
   }
 
   private void animateLogo() {
     final LoginLogoView logo = (LoginLogoView) findViewById(R.id.login_logo);
     ObjectAnimator drop = ObjectAnimator.ofFloat(logo, "translationY", -logo.getHeight() - dpToPx(100), 0);
     drop.setInterpolator(new BounceInterpolator());
+    drop.setDuration(800);
     drop.addListener(new AnimatorListenerAdapter() {
       @Override
       public void onAnimationStart(Animator animation) {
@@ -83,17 +106,9 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
     drop.start();
   }
 
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.main, menu);
-    return true;
-  }
-
   public void animateBuss() {
     final int START = (int) dpToPx(1000);
     final int STOP1 = (int) dpToPx(10);
-    ;
     final int STOP2 = (int) dpToPx(-1000);
     View bus = findViewById(R.id.login_bus);
     ObjectAnimator part1 = ObjectAnimator.ofFloat(bus, "translationX", START, STOP1);
@@ -139,7 +154,7 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
       @Override
       public void onFailure(String error) {
         LoadingDialogFragment.hideLoadingDialog(getSupportFragmentManager());
-        Toast.makeText(LoginActivity.this, "Något gick fel..", Toast.LENGTH_LONG);
+        Toast.makeText(LoginActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_LONG);
       }
     });
   }
