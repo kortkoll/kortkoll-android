@@ -1,13 +1,11 @@
 package nu.kortkoll.android.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.app.FragmentActivity;
 import android.util.TypedValue;
-import android.view.Menu;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
@@ -54,11 +52,6 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
       @Override
       public void run() {
         animateLoginBox();
-      }
-    }, 1000);
-    handler.postDelayed(new Runnable() {
-      @Override
-      public void run() {
         animateLogo();
       }
     }, 1000);

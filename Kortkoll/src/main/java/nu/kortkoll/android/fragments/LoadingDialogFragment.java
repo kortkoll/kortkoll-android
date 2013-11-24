@@ -16,7 +16,7 @@ public class LoadingDialogFragment extends DialogFragment {
   public Dialog onCreateDialog(Bundle savedInstanceState) {
     final Dialog dialog = new Dialog(getActivity(), R.style.Dialog_Loading);
 
-    dialog.setContentView(R.layout.loading_fragment);
+    dialog.setContentView(R.layout.fragment_loading);
     dialog.setCanceledOnTouchOutside(false);
     dialog.setCancelable(false);
 

@@ -42,7 +42,7 @@
         <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:background="@drawable/dashes_horizontal"
+                android:background="@drawable/card_dashes_horizontal"
                 android:layout_marginTop="8dp"
                 android:layerType="software"
                 android:layout_marginLeft="-32dp"
