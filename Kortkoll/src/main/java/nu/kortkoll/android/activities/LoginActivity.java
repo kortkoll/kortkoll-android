@@ -22,6 +22,7 @@ import java.util.List;
 
 import nu.kortkoll.android.API.APIQuery;
 import nu.kortkoll.android.R;
+import nu.kortkoll.android.credentials.Store;
 import nu.kortkoll.android.fragments.LoadingDialogFragment;
 import nu.kortkoll.android.models.Card;
 import nu.kortkoll.android.views.LoginBoxView;
@@ -138,10 +139,8 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
       @Override
       public void onSuccess(List<Card> cards) {
         LoadingDialogFragment.hideLoadingDialog(getSupportFragmentManager());
-        Intent intent = new Intent(LoginActivity.this, CardsActivity.class);
-        intent.putParcelableArrayListExtra(Card.PARCEL_KEYS, new ArrayList<Parcelable>(cards));
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        storeCredentials(username, password);
+        startCardActivity(cards);
       }
 
       @Override
@@ -150,6 +149,18 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
         Toast.makeText(LoginActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_LONG);
       }
     });
+  }
+
+  private void storeCredentials(String username, String password) {
+    Store.storeUsername(this, username);
+    Store.storePassword(this, password);
+  }
+
+  private void startCardActivity(List<Card> cards) {
+    Intent intent = new Intent(this, CardsActivity.class);
+    intent.putParcelableArrayListExtra(Card.PARCEL_KEYS, new ArrayList<Parcelable>(cards));
+    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    startActivity(intent);
   }
 
   public float dpToPx(int dp) {

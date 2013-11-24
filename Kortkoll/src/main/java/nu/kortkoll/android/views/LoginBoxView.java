@@ -1,6 +1,7 @@
 package nu.kortkoll.android.views;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import nu.kortkoll.android.R;
+import nu.kortkoll.android.credentials.Store;
 
 /**
  * Created by henrik on 9/29/13.
@@ -48,12 +50,25 @@ public class LoginBoxView extends LinearLayout {
     passwordEdittext = (EditText) findViewById(R.id.passwordEdittext);
     loginButton = (Button) findViewById(R.id.loginButton);
 
+    getStoredUsernameAndPassword();
+
     loginButton.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
         onLoginClicked();
       }
     });
+  }
+
+  private void getStoredUsernameAndPassword() {
+    String username = Store.getUsername(getContext());
+    String password = Store.getPassword(getContext());
+    if(!TextUtils.isEmpty(username)){
+      usernameEdittext.setText(username);
+    }
+    if(!TextUtils.isEmpty(password)){
+      passwordEdittext.setText(password);
+    }
   }
 
   private void onLoginClicked() {
