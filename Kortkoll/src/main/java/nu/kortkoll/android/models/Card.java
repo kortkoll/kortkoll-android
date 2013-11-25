@@ -3,6 +3,9 @@ package nu.kortkoll.android.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by henrik on 9/29/13.
  */
@@ -13,7 +16,7 @@ public class Card implements Parcelable {
   public String name;
   public double purse;
   public String owner;
-  public Product[] products;
+  public List<Product> products = new ArrayList<Product>();
 
   @Override
   public int describeContents() {
@@ -35,6 +38,8 @@ public class Card implements Parcelable {
     name = parcel.readString();
     purse = parcel.readDouble();
     owner = parcel.readString();
+    parcel.readTypedList(products, Product.CREATOR);
+
   }
 
   @Override
@@ -42,9 +47,6 @@ public class Card implements Parcelable {
     parcel.writeString(name);
     parcel.writeDouble(purse);
     parcel.writeString(owner);
+    parcel.writeTypedList(products);
   }
-}
-
-class Product {
-
 }

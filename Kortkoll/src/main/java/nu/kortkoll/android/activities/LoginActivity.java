@@ -25,6 +25,7 @@ import nu.kortkoll.android.R;
 import nu.kortkoll.android.credentials.Store;
 import nu.kortkoll.android.fragments.LoadingDialogFragment;
 import nu.kortkoll.android.models.Card;
+import nu.kortkoll.android.models.Product;
 import nu.kortkoll.android.views.LoginBoxView;
 import nu.kortkoll.android.views.LoginLogoView;
 
@@ -140,6 +141,7 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
       public void onSuccess(List<Card> cards) {
         LoadingDialogFragment.hideLoadingDialog(getSupportFragmentManager());
         storeCredentials(username, password);
+        cards.get(0).products.add(Product.getMockProduct());
         startCardActivity(cards);
       }
 
