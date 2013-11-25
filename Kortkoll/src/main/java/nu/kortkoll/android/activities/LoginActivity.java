@@ -60,7 +60,7 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
   }
 
   private void animateLoginBox() {
-    ObjectAnimator pushUp = ObjectAnimator.ofFloat(loginBoxView, "translationY", loginBoxView.getHeight() + dpToPx(100), 0);
+    ObjectAnimator pushUp = ObjectAnimator.ofFloat(loginBoxView, "translationY", loginBoxView.getHeight(), 0);
     pushUp.setInterpolator(new BounceInterpolator());
     pushUp.setDuration(800);
     pushUp.addListener(new AnimatorListenerAdapter() {
@@ -76,7 +76,7 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
 
   private void animateLogo() {
     final LoginLogoView logo = (LoginLogoView) findViewById(R.id.login_logo);
-    ObjectAnimator drop = ObjectAnimator.ofFloat(logo, "translationY", -logo.getHeight() - dpToPx(100), 0);
+    ObjectAnimator drop = ObjectAnimator.ofFloat(logo, "translationY", -logo.getHeight(), 0);
     drop.setInterpolator(new BounceInterpolator());
     drop.setDuration(800);
     drop.addListener(new AnimatorListenerAdapter() {
