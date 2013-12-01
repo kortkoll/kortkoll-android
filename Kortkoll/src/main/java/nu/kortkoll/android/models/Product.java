@@ -20,7 +20,8 @@ public class Product implements Parcelable {
 
   private final static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-  public Product(){}
+  public Product() {
+  }
 
   public Product(Parcel parcel) {
     type = parcel.readString();

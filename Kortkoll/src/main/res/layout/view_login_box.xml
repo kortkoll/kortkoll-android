@@ -48,7 +48,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_username"
-                android:text="blommegard"
                 android:layout_marginLeft="6dp"/>
     </LinearLayout>
 
@@ -75,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/login_password"
                 android:inputType="textPassword"
-                android:text="2owX8VuCxTQghP"
                 android:layout_marginLeft="6dp"/>
 
     </LinearLayout>

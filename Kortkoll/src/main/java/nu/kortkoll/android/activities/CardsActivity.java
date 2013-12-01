@@ -27,16 +27,12 @@ public class CardsActivity extends FragmentActivity {
     setContentView(R.layout.activity_cards);
     cards = getIntent().getParcelableArrayListExtra(Card.PARCEL_KEYS);
 
-    cards.addAll(cards);
-    cards.addAll(cards);
-    cards.addAll(cards);
-
     mAdapter = new MyAdapter(getSupportFragmentManager(), cards);
 
     mPager = (ViewPager) findViewById(R.id.pager);
     mPager.setAdapter(mAdapter);
 
-    PageIndicator pageIndicator = (PageIndicator)findViewById(R.id.indicator);
+    PageIndicator pageIndicator = (PageIndicator) findViewById(R.id.indicator);
     pageIndicator.setViewPager(mPager);
   }
 

@@ -15,7 +15,7 @@ import nu.kortkoll.android.credentials.Store;
 /**
  * Created by henrik on 9/29/13.
  */
-public class LoginBoxView extends LinearLayout {
+public class UsernamePasswordView extends LinearLayout {
 
   private EditText usernameEdittext;
   private EditText passwordEdittext;
@@ -23,17 +23,17 @@ public class LoginBoxView extends LinearLayout {
 
   private OnLoginListener loginListener;
 
-  public LoginBoxView(Context context) {
+  public UsernamePasswordView(Context context) {
     super(context);
     initialize();
   }
 
-  public LoginBoxView(Context context, AttributeSet attrs) {
+  public UsernamePasswordView(Context context, AttributeSet attrs) {
     super(context, attrs);
     initialize();
   }
 
-  public LoginBoxView(Context context, AttributeSet attrs, int defStyle) {
+  public UsernamePasswordView(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
     initialize();
   }
@@ -63,10 +63,10 @@ public class LoginBoxView extends LinearLayout {
   private void getStoredUsernameAndPassword() {
     String username = Store.getUsername(getContext());
     String password = Store.getPassword(getContext());
-    if(!TextUtils.isEmpty(username)){
+    if (!TextUtils.isEmpty(username)) {
       usernameEdittext.setText(username);
     }
-    if(!TextUtils.isEmpty(password)){
+    if (!TextUtils.isEmpty(password)) {
       passwordEdittext.setText(password);
     }
   }

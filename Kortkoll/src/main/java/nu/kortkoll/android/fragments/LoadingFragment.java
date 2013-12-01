@@ -9,7 +9,7 @@ import android.view.KeyEvent;
 
 import nu.kortkoll.android.R;
 
-public class LoadingDialogFragment extends DialogFragment {
+public class LoadingFragment extends DialogFragment {
   public static final String LOADING_DIALOG_TAG = "loading-dialog";
 
   @Override
@@ -23,7 +23,7 @@ public class LoadingDialogFragment extends DialogFragment {
     dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
       @Override
       public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
           return true;
         }
         return false;
@@ -33,17 +33,17 @@ public class LoadingDialogFragment extends DialogFragment {
     return dialog;
   }
 
-  public static void showLoadingDialogWithHolo(FragmentManager fragmentManager) {
-    LoadingDialogFragment fragment = (LoadingDialogFragment) fragmentManager.findFragmentByTag(LOADING_DIALOG_TAG);
+  public static void show(FragmentManager fragmentManager) {
+    LoadingFragment fragment = (LoadingFragment) fragmentManager.findFragmentByTag(LOADING_DIALOG_TAG);
     if (fragment != null) {
       fragment.dismiss();
     }
-    new LoadingDialogFragment().show(fragmentManager, LOADING_DIALOG_TAG);
+    new LoadingFragment().show(fragmentManager, LOADING_DIALOG_TAG);
   }
 
-  public static void hideLoadingDialog(FragmentManager fragmentManager){
+  public static void hide(FragmentManager fragmentManager) {
     DialogFragment fragment = (DialogFragment) fragmentManager.findFragmentByTag(LOADING_DIALOG_TAG);
-    if(fragment != null){
+    if (fragment != null) {
       fragment.dismissAllowingStateLoss();
     }
   }

@@ -23,15 +23,15 @@ import java.util.List;
 import nu.kortkoll.android.API.APIQuery;
 import nu.kortkoll.android.R;
 import nu.kortkoll.android.credentials.Store;
-import nu.kortkoll.android.fragments.LoadingDialogFragment;
+import nu.kortkoll.android.fragments.LoadingFragment;
 import nu.kortkoll.android.models.Card;
 import nu.kortkoll.android.models.Product;
-import nu.kortkoll.android.views.LoginBoxView;
 import nu.kortkoll.android.views.LoginLogoView;
+import nu.kortkoll.android.views.UsernamePasswordView;
 
-public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLoginListener {
+public class LoginActivity extends FragmentActivity implements UsernamePasswordView.OnLoginListener {
 
-  private LoginBoxView loginBoxView;
+  private UsernamePasswordView usernamePasswordView;
   private Handler handler = new Handler();
 
   @Override
@@ -39,9 +39,9 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
 
-    loginBoxView = (LoginBoxView) findViewById(R.id.LoginLoginView);
-    loginBoxView.setLoginListener(this);
-    loginBoxView.setVisibility(View.INVISIBLE);
+    usernamePasswordView = (UsernamePasswordView) findViewById(R.id.LoginLoginView);
+    usernamePasswordView.setLoginListener(this);
+    usernamePasswordView.setVisibility(View.INVISIBLE);
 
     findViewById(R.id.login_logo).setVisibility(View.INVISIBLE);
     animateBuss();
@@ -60,14 +60,14 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
   }
 
   private void animateLoginBox() {
-    ObjectAnimator pushUp = ObjectAnimator.ofFloat(loginBoxView, "translationY", loginBoxView.getHeight(), 0);
+    ObjectAnimator pushUp = ObjectAnimator.ofFloat(usernamePasswordView, "translationY", usernamePasswordView.getHeight(), 0);
     pushUp.setInterpolator(new BounceInterpolator());
     pushUp.setDuration(800);
     pushUp.addListener(new AnimatorListenerAdapter() {
       @Override
       public void onAnimationStart(Animator animation) {
         super.onAnimationStart(animation);
-        loginBoxView.setVisibility(View.VISIBLE);
+        usernamePasswordView.setVisibility(View.VISIBLE);
       }
     });
 
@@ -135,11 +135,11 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
 
   @Override
   public void onLoginPressed(final String username, final String password) {
-    LoadingDialogFragment.showLoadingDialogWithHolo(getSupportFragmentManager());
+    LoadingFragment.show(getSupportFragmentManager());
     APIQuery.getCards(this, username, password, new APIQuery.CardListener() {
       @Override
       public void onSuccess(List<Card> cards) {
-        LoadingDialogFragment.hideLoadingDialog(getSupportFragmentManager());
+        LoadingFragment.hide(getSupportFragmentManager());
         storeCredentials(username, password);
         cards.get(0).products.add(Product.getMockProduct());
         startCardActivity(cards);
@@ -147,7 +147,7 @@ public class LoginActivity extends FragmentActivity implements LoginBoxView.OnLo
 
       @Override
       public void onFailure(String error) {
-        LoadingDialogFragment.hideLoadingDialog(getSupportFragmentManager());
+        LoadingFragment.hide(getSupportFragmentManager());
         Toast.makeText(LoginActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_LONG);
       }
     });

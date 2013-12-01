@@ -31,7 +31,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,7 +38,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import nu.kortkoll.android.MySSLSocketFactory;
 import nu.kortkoll.android.models.Card;
 
 /**
@@ -90,7 +88,7 @@ public class APIQuery {
         List<Card> cards = gson.fromJson(responseText, new TypeToken<List<Card>>() {
         }.getType());
 
-        if(cards == null){
+        if (cards == null) {
           cards = Collections.EMPTY_LIST;
         }
         listener.onSuccess(cards);

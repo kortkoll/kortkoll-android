@@ -53,7 +53,7 @@ public class CardFragment extends Fragment {
     LinearLayout products = (LinearLayout) view.findViewById(R.id.cardProducts);
 
     for (Product product : card.products) {
-      if(!product.active){
+      if (!product.active) {
         continue;
       }
 

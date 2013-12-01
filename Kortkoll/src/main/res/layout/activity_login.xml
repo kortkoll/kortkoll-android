@@ -19,7 +19,7 @@
             android:layout_marginLeft="0dp"
             android:src="@drawable/buss"/>
 
-    <nu.kortkoll.android.views.LoginBoxView
+    <nu.kortkoll.android.views.UsernamePasswordView
             android:id="@+id/LoginLoginView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -53,17 +53,16 @@ public class LoginLogoView extends LinearLayout {
     frameAnimation = (AnimationDrawable) logo.getBackground();
   }
 
-  public void startAnimation(){
-    ObjectAnimator ani2 = ObjectAnimator.ofFloat(card2, "rotation", 0, 15);
-    ObjectAnimator ani3 = ObjectAnimator.ofFloat(card3, "rotation", 0, -15);
-    ViewHelper.setPivotX(card2, dpToPx(196/2));
-    ViewHelper.setPivotX(card3, dpToPx(196/2));
-    ViewHelper.setPivotY(card2, dpToPx(136/2));
-    ViewHelper.setPivotY(card3, dpToPx(136/2));
-
+  public void startAnimation() {
+    ObjectAnimator animation1 = ObjectAnimator.ofFloat(card2, "rotation", 0, 15);
+    ObjectAnimator animation2 = ObjectAnimator.ofFloat(card3, "rotation", 0, -15);
+    ViewHelper.setPivotX(card2, dpToPx(196 / 2));
+    ViewHelper.setPivotX(card3, dpToPx(196 / 2));
+    ViewHelper.setPivotY(card2, dpToPx(136 / 2));
+    ViewHelper.setPivotY(card3, dpToPx(136 / 2));
 
     AnimatorSet set = new AnimatorSet();
-    set.playTogether(ani2,ani3);
+    set.playTogether(animation1, animation2);
     set.setDuration(500);
     set.start();
 

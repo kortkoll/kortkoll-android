@@ -1,4 +1,4 @@
-package nu.kortkoll.android;
+package nu.kortkoll.android.API;
 
 
 import org.apache.http.conn.ssl.SSLSocketFactory;
