@@ -8,6 +8,10 @@ Kortkoll started out as a pet project of [@blommegard](http://twitter.com/blomme
 
 The app is currently live on iOS in the [App Store](https://itunes.apple.com/se/app/kortkoll/id681422117) and was first developed on [Stockholm Startup Hack](http://www.sthlmstartuphack.com/).
 
+## TODO
+
+There are stills some things that need to be done before Kortkoll can be release on Google Play. Stay tuned!
+
 ## Why public?
 
 The app is already free, so why not? I would love to get some feedback on my work and hopefully someone will join in and fix stuff.
@@ -20,7 +24,7 @@ Currently the app stores the users credentials in shared preferences with MODE_P
 
 Run the following commands to get started:
 
-    $ git clone https://github.com/Kortkoll/kortkoll-ios.git
+    $ git clone https://github.com/Kortkoll/kortkoll-android.git
     $ cd kortkoll-android
     $ gradle tasks
 
